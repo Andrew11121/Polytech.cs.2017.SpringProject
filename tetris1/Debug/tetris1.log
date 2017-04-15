@@ -1,0 +1,4 @@
+﻿  tetris1.c
+c:\users\admin\documents\visual studio 2015\projects\tetris\tetris1\tetris1\tetris1.c(75): warning C4244: функция: преобразование "time_t" в "unsigned int", возможна потеря данных
+  tetris1.vcxproj -> C:\Users\Admin\Documents\Visual Studio 2015\Projects\tetris\tetris1\Debug\tetris1.exe
+  tetris1.vcxproj -> C:\Users\Admin\Documents\Visual Studio 2015\Projects\tetris\tetris1\Debug\tetris1.pdb (Full PDB)
