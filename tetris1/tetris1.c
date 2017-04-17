@@ -1,4 +1,4 @@
-
+п»ї
 
 #include <stdio.h>
 #include <math.h>
@@ -16,26 +16,30 @@
 
 #define TRUE 1
 #define FALSE 0
-//#define	SIZE_WINDOW_X		350 
-//#define	SIZE_WINDOW_Y		600
+
 #define VerticalFrameOfPitch   177
 #define BottomFrameOfPitch 176
 #define TopFrameOfPitch 177
 #define EmptySpace 0
 #define Figure 2
 
+#define FMAP_COUNTS 7 
+#define ColumnsCount  12
+#define RowsCount  22
+#define SCR_OB  '\xFE' 
+
 /*GDI +
 SDL
 */
-//характеристики поля
-const int ColumnsCount = 12;
-const int RowsCount = 22;
-//символы заполнения (в define)
+//С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РїРѕР»СЏ
+
+const int NewFigure = '0';
+//СЃРёРјРІРѕР»С‹ Р·Р°РїРѕР»РЅРµРЅРёСЏ (РІ define)
 //const unsigned char VerticalFrameOfPitch = 177;
 //const unsigned char BottomFrameOfPitch = 177;
 //const unsigned char EmptySpace = 0;
 
-const unsigned char LevelData0[22][13] =
+const unsigned char LevelData0[22][13] = //РїРѕР»Рµ РёРіСЂС‹
 {
 	"============",
 	"X##########X",
@@ -62,7 +66,56 @@ const unsigned char LevelData0[22][13] =
 
 };
 
-//условие продолжения игры
+int screen[RowsCount][ColumnsCount] = { 0 }; //СЂР°Р·РјРµСЂ СЌРєСЂР°РЅР°
+int map[4][4]; //С„РёРіСѓСЂР°
+int px, py, score, nextmap;
+
+int fmap[FMAP_COUNTS][4][4] = // РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ С„РёРіСѓСЂ С‚РµС‚СЂРёСЃР°
+{
+	{
+		{ 1, 1, 0, 0 },
+		{ 1, 1, 0, 0 },
+		{ 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 }
+	},
+	{
+		{ 1, 0, 0, 0 },
+		{ 1, 0, 0, 0 },
+		{ 1, 0, 0, 0 },
+		{ 1, 0, 0, 0 }
+	},
+	{
+		{ 0, 0, 1, 0 },
+		{ 1, 1, 1, 0 },
+		{ 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 }
+	},
+	{
+		{ 1, 1, 1, 0 },
+		{ 0, 0, 1, 0 },
+		{ 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 }
+	},
+	{
+		{ 0, 1, 1, 0 },
+		{ 1, 1, 0, 0 },
+		{ 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 }
+	},
+	{
+		{ 1, 1, 0, 0 },
+		{ 0, 1, 1, 0 },
+		{ 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 }
+	},
+	{
+		{ 1, 1, 1, 0 },
+		{ 0, 1, 0, 0 },
+		{ 0, 0, 0, 0 },
+		{ 0, 0, 0, 0 }
+	}
+};
+//СѓСЃР»РѕРІРёРµ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ РёРіСЂС‹
 bool IsGameActive = true;
  unsigned char LevelData[22][12];
  int FigureRow = 0;
@@ -70,13 +123,17 @@ bool IsGameActive = true;
 
  HANDLE consoleHandle = 0;
 
-void SetupSystem() // общие организационные действия.Например: задание зерна генератору случайных чисел.
+void SetupSystem() // РѕР±С‰РёРµ РѕСЂРіР°РЅРёР·Р°С†РёРѕРЅРЅС‹Рµ РґРµР№СЃС‚РІРёСЏ.РќР°РїСЂРёРјРµСЂ: Р·Р°РґР°РЅРёРµ Р·РµСЂРЅР° РіРµРЅРµСЂР°С‚РѕСЂСѓ СЃР»СѓС‡Р°Р№РЅС‹С… С‡РёСЃРµР».
 {
 	srand(time(0));
+	
+	COORD scrn;
 	consoleHandle = GetStdHandle (STD_OUTPUT_HANDLE);
+
+
 }
 
-void Initialise() // Инициализация вводимых данных, представленных в виде программного кода,
+void Initialise() // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РІРІРѕРґРёРјС‹С… РґР°РЅРЅС‹С…, РїСЂРµРґСЃС‚Р°РІР»РµРЅРЅС‹С… РІ РІРёРґРµ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ РєРѕРґР°,
 {
 
 	for (int r = 0; r < RowsCount; r++)
@@ -126,56 +183,11 @@ void Initialise() // Инициализация вводимых данных, представленных в виде програ
 		}
 	}
 }
-void Render() // осуществление графического вывода основного цикла игры на экран.
-{
-	COORD CursorCoord;
-	CursorCoord.X=0;
-	CursorCoord.Y=0;
-	SetConsoleCursorPosition(consoleHandle, CursorCoord);
-	
-	 
-	printf("\n\n\t");
-	for (int r = 0; r <  RowsCount; r++)
-	{
-		for (int c = 0; c < ColumnsCount; c++)
-		{
-			unsigned char symbol = LevelData[r][c];
-
-			switch (symbol)
-			{
-			case VerticalFrameOfPitch :
-				{
-					SetConsoleTextAttribute(consoleHandle, 5);
-					break;
-				}
-			case BottomFrameOfPitch :
-			{
-				SetConsoleTextAttribute(consoleHandle, 5);
-				break;
-			}
-			case EmptySpace :
-			{
-				SetConsoleTextAttribute(consoleHandle, 6);
-				break;
-			}
-			case Figure:
-			{
-				SetConsoleTextAttribute(consoleHandle, 7);
-				break;
-			}
 
 
-			}
-			
-			printf("%c", symbol);
-		}
-		printf("\n\t");
-		
-		
-	}
-}
 
 void MoveTo(int row, int column)
+
 {
 	unsigned char destinationCell = LevelData[row][column];
 	bool canMoveToCell = true;
@@ -186,8 +198,10 @@ void MoveTo(int row, int column)
 	break;
 	}
 	case BottomFrameOfPitch:
-	{	canMoveToCell = false;
-	break;
+	{
+		canMoveToCell = false;
+		//CreateNewFigure(Figure);
+		break;
 	}
 	case VerticalFrameOfPitch:
 	{
@@ -207,20 +221,69 @@ void MoveTo(int row, int column)
 
 }
 
-/*void CreateNewFigure(int NewFigure = '0';)
+void CreateNewFigure(Newfigure)
 {
+
+}
+
+
+void Render() // РѕСЃСѓС‰РµСЃС‚РІР»РµРЅРёРµ РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РІС‹РІРѕРґР° РѕСЃРЅРѕРІРЅРѕРіРѕ С†РёРєР»Р° РёРіСЂС‹ РЅР° СЌРєСЂР°РЅ.
+{
+	COORD CursorCoord;
+	CursorCoord.X = 0;
+	CursorCoord.Y = 0;
+	SetConsoleCursorPosition(consoleHandle, CursorCoord);
+
+
+	printf("\n\n\t");
+	for (int r = 0; r < RowsCount; r++)
+	{
+		for (int c = 0; c < ColumnsCount; c++)
+		{
+			unsigned char symbol = LevelData[r][c];
+
+			switch (symbol)
+			{
+			case VerticalFrameOfPitch:
+			{
+				SetConsoleTextAttribute(consoleHandle, 5);
+				break;
+			}
+			case BottomFrameOfPitch:
+			{
+				SetConsoleTextAttribute(consoleHandle, 5);
+				break;
+			}
+			case EmptySpace:
+			{
+				SetConsoleTextAttribute(consoleHandle, 6);
+				break;
+			}
+			case Figure:
+			{
+				SetConsoleTextAttribute(consoleHandle, 7);
+				break;
+			}
+
+
+			}
+
+			printf("%c", symbol);
+		}
+		printf("\n\t");
+
+
+	}
 	if (Figure == BottomFrameOfPitch)
 	{
-		rand(RowsCount) % 22;
-		rand(ColumnsCount) % 12;
-		NewFigure = [RowsCount][ColumnsCount];
-
-		
+		CreateNewFigure(NewFigure);
 	}
 }
-*/
 
-void Update() // основная логика игры.
+
+
+
+void Update() // РѕСЃРЅРѕРІРЅР°СЏ Р»РѕРіРёРєР° РёРіСЂС‹.
 {
 	unsigned char inputChar = _getch();
 	inputChar = tolower (inputChar) ;
