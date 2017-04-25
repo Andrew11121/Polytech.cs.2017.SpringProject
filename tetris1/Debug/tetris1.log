@@ -1,5 +1,0 @@
-﻿  tetris1.c
-c:\users\admin\documents\политех16-17\прога\git\polytech.cs.2017.springproject\tetris1\tetris1\tetris1.c(128): warning C4244: функция: преобразование "time_t" в "unsigned int", возможна потеря данных
-c:\users\admin\documents\политех16-17\прога\git\polytech.cs.2017.springproject\tetris1\tetris1\tetris1.c(130): warning C4101: scrn: неиспользованная локальная переменная
-  tetris1.vcxproj -> C:\Users\Admin\Documents\политех16-17\прога\GIT\Polytech.cs.2017.SpringProject\tetris1\Debug\tetris1.exe
-  tetris1.vcxproj -> C:\Users\Admin\Documents\политех16-17\прога\GIT\Polytech.cs.2017.SpringProject\tetris1\Debug\tetris1.pdb (Full PDB)
