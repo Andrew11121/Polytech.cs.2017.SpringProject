@@ -177,7 +177,7 @@ void RotateFigure(void) // поворот фигуры
 {
 	
 	int _map[4][4];
-	int  sx = 4, sy = 4;
+	int  sFrameOfx = 4, sFrameOfy = 4;
 
 	for (i = 0; i < 4; i++)
 		for (j = 0; j < 4; j++)
@@ -185,15 +185,15 @@ void RotateFigure(void) // поворот фигуры
 			_map[j][i] = map[j][i];
 			if (map[j][i])
 			{
-				if (i < sx) sx = i;
-				if (inv(j) < sy) sy = inv(j);
+				if (i < sFrameOfx) sFrameOfx = i;
+				if (inv(j) < sFrameOfy) sFrameOfy = inv(j);
 			}
 			map[j][i] = 0;
 		}
 
 	for (i = 0; i < 4; i++)
 		for (j = 0; j < 4; j++)
-			if (_map[inv(i)][j]) map[j - sx][i - sy] = 1;
+			if (_map[inv(i)][j]) map[j - sFrameOfx][i - sFrameOfy] = 1;
 
 	if (!FallFigure(px, py)) for (i = 0; i < 4; i++) for (j = 0; j < 4; j++) map[j][i] = _map[j][i];
 }
