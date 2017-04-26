@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BB26D3C1-3772-41B8-B6E4-2602B12EBDDD}</ProjectGuid>
+    <ProjectGuid>{DC21AB38-473C-4419-82F4-C362A929A5DF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>tetris2</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
@@ -148,6 +148,9 @@
   <ItemGroup>
     <ClCompile Include="main.C" />
     <ClCompile Include="TetrisFunctions.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tetris.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tetris.h" />

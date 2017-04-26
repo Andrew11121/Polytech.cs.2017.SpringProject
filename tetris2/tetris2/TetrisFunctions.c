@@ -1,4 +1,6 @@
-﻿
+﻿//include "Tetris.h"
+#pragma once
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,8 +9,8 @@
 #include <time.h>
 #include "Tetris.h"
 
-void gotoxy(int xpos, int ypos); //помещает курсор в точку с координатами  xpos, ypos
-								 
+
+
 // определения клавиш
 #define KEY_UP 72 
 #define KEY_DOWN 80 
@@ -33,6 +35,7 @@ void gotoxy(int xpos, int ypos); //помещает курсор в точку �
 const char* GAME_TITLE =
 "W E L C O M E\t \n \t T O \nT E T R I S\n\n\n"; // заголовок
 
+void gotoxy(int xpos, int ypos); //помещает курсор в точку с координатами  xpos, ypos
 
 int screen[HorizontalSizeX][VerticalSizeY] = { 0 }; // размер экрана
 int map[4][4]; //фигура
@@ -84,14 +87,13 @@ int fmap[NumberOfFigures][4][4] = //инициализация фигур
 	}
 };
 
-
 void print(void) //печать
-{	
+{
 	int buff[HorizontalSizeX][VerticalSizeY];
 
 	for (i = 0; i < VerticalSizeY; i++) for (j = 0; j < HorizontalSizeX; j++) buff[j][i] = screen[j][i]; //вывод из буфера на экран
-	for (i = 0; i < 4; i++) 
-		for (j = 0; j < 4; j++) 
+	for (i = 0; i < 4; i++)
+		for (j = 0; j < 4; j++)
 			if (map[j][i]) buff[j + px][i + py] = 1; //если часть фигуры, то в буфере обозначить 1
 
 	gotoxy(0, 0); //перейти в точку с координатами 0, 0
@@ -99,7 +101,7 @@ void print(void) //печать
 	{
 		for (j = 0; j < HorizontalSizeX; j++)
 		{
-			
+
 			putchar(buff[j][i] == 0 ? MapColor : FigureColor); //если элемент в буфере не часть фигуры, закрасить полем
 		}
 		putchar('\n');
@@ -128,7 +130,7 @@ int GetKey(void)
 {
 	int c;
 	if (_kbhit()) //возвращает истину, если нажата какая-либо клавиша на клавиатуре. 
-		//В противном случае возвращается 0. В любом случае код клавиши не удаляется из входного буфера.
+				  //В противном случае возвращается 0. В любом случае код клавиши не удаляется из входного буфера.
 	{
 		if ((c = _getch()) == 224) c = _getch(); //если нажата клавиша p, нажать любую для продолжения
 		return c;
@@ -175,7 +177,7 @@ inv(3) => 0
 
 void RotateFigure(void) // поворот фигуры
 {
-	
+
 	int _map[4][4];
 	int  sFrameOfx = 4, sFrameOfy = 4;
 
@@ -269,7 +271,7 @@ void clearscreen(void) //î÷èñòêà ýêðàíà
 
 void StartGame(void) // начало игры
 {
-	
+
 	int  c;
 	time_t tm;
 
@@ -352,7 +354,7 @@ void StartGame(void) // начало игры
 void GameMenu(void) //меню игры
 {
 	int p = 1, c = 0;
-	const char* GAME_MENU = 
+	const char* GAME_MENU =
 		"\t" cursor "1. Start\n"
 		"\t 2. Info\n"
 		"\t 3. Exit";
@@ -369,7 +371,7 @@ void GameMenu(void) //меню игры
 		case '1':
 		case '2':
 		case '3':
-		
+
 			p = c - '0';
 		case KEY_ENTER:
 			switch (p)
@@ -379,7 +381,7 @@ void GameMenu(void) //меню игры
 				StartGame();
 				gotoxy(0, VerticalSizeY); printf("Press ESC to exit to main menu...\n"); while (_getch() != KEY_ESC);
 				break;
-			
+
 			case 2:
 				system("cls");
 				printf("%s%s", GAME_TITLE,
