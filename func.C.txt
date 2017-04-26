@@ -1,5 +1,5 @@
 void func(void)
 {
   printf("huy");
-printf("hello");
+  printf("hello");
 }

@@ -146,7 +146,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="tetris2.c" />
+    <ClCompile Include="main.C" />
+    <ClCompile Include="TetrisFunctions.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tetris.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Tetris.h" />
