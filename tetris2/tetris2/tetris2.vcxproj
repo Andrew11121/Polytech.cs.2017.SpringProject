@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BB26D3C1-3772-41B8-B6E4-2602B12EBDDD}</ProjectGuid>
+    <ProjectGuid>{DC21AB38-473C-4419-82F4-C362A929A5DF}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>tetris2</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -147,6 +147,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="tetris2.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Tetris.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
