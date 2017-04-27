@@ -120,7 +120,7 @@ void print(void) //печать
 void NextFigure(void) // вывести следющую идущую фигуру в поле
 {
 
-	gotoxy(HorizontalSizeX + 1, 2);
+	gotoxy(HorizontalSizeX + 1, 1);
 	printf("Next figure ");
 	
 	for (i = 0; i < 4; i++)
@@ -149,7 +149,7 @@ int GetKey(void)
 	return FALSE;
 }
 
-void gotoxy(int X_Position, int Y_Position) //функция перехода курсором в точку с координатами xpos, ypos
+void gotoxy(int X_Position, int Y_Position) //функция перехода курсором в точку с координатами X_Position, Y_Position
 {
 	COORD scrn;
 	HANDLE ConsoleHandle = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -178,12 +178,8 @@ int FallFigure(int x, int y) //падение фигуры (вниз)
 	return TRUE;
 }
 
-/*
-inv(0) => 3
-inv(1) => 2
-inv(2) => 1
-inv(3) => 0
-*/
+
+
 #define inv(x) ((x * (-1)) + 3)
 
 void RotateFigure(void) // поворот фигуры
