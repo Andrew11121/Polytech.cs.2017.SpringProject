@@ -10,7 +10,7 @@
 
 void main(void)
 {
-	//srand((unsigned)time(NULL));
+	
 	printf("%s%s", GAME_TITLE,
 		"Press any key to begin...\n");
 	_getch(); if (_kbhit()) _getch();

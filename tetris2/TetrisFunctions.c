@@ -29,6 +29,7 @@
 #define MapColor  177//закрашивание поля
 #define FigureColor  254 //закрашивание фигуры
 
+
 #define cursor "\x1A" //символ курсора
 
 const char* GAME_TITLE =
@@ -41,6 +42,8 @@ int map[4][4]; //фигура
 int px, py, score, nextmap;
 int i, j;
 int fmap[NumberOfFigures][4][4] = //инициализация фигур
+
+
 {
 	{
 		{ 1, 1, 0, 0 },
@@ -86,8 +89,12 @@ int fmap[NumberOfFigures][4][4] = //инициализация фигур
 	}
 };
 
+
+HANDLE consoleHandle = 0;
+
 void print(void) //печать
 {
+
 	int buff[HorizontalSizeX][VerticalSizeY];
 
 	for (i = 0; i < VerticalSizeY; i++) for (j = 0; j < HorizontalSizeX; j++) buff[j][i] = screen[j][i]; //вывод из буфера на экран
@@ -104,6 +111,7 @@ void print(void) //печать
 			putchar(buff[j][i] == 0 ? MapColor : FigureColor); //если элемент в буфере не часть фигуры, закрасить полем
 		}
 		putchar('\n');
+		
 	}
 
 	gotoxy(HorizontalSizeX + 1, 0); // передвинуться вбок
@@ -113,14 +121,18 @@ void NextFigure(void) // вывести следющую идущую фигур
 {
 
 	gotoxy(HorizontalSizeX + 1, 2);
-	printf("Next: ");
-
+	printf("Next figure ");
+	
 	for (i = 0; i < 4; i++)
 	{
+		
 		gotoxy(HorizontalSizeX + 2, i + 3);
+		
 		for (j = 0; j < 4; j++)
 		{
+			
 			putchar(fmap[nextmap][j][i] == 0 ? ' ' : FigureColor); // если не является частью фигуры, то закрасить пробелами, иначе закрасить фигурой
+			
 		}
 	}
 }
@@ -260,10 +272,16 @@ void createmap(void) //ñîçäàíèå ôèãóðû
 
 void clearscreen(void) //î÷èñòêà ýêðàíà
 {
+	
 	int i, j;
 	for (i = 0; i < VerticalSizeY; i++)
+	{
 		for (j = 0; j < HorizontalSizeX; j++)
+		{
 			screen[j][i] = 0;
+		}
+
+	}
 }
 
 
@@ -353,10 +371,10 @@ void StartGame(void) // начало игры
 void GameMenu(void) //меню игры
 {
 	int p = 1, c = 0;
-	const char* GAME_MENU =
-		"\t" cursor "1. Start\n"
-		"\t 2. Info\n"
-		"\t 3. Exit";
+	const char* GAME_MENU = "\n\n\n"
+		"\t" cursor "1. Start game\n"
+		"\t 2. Information (control)\n"
+		"\t 3. Exit game";
 	system("cls"); printf("%s%s", GAME_TITLE, GAME_MENU);
 	while (TRUE) // навигация в меню
 	{
@@ -391,19 +409,20 @@ void GameMenu(void) //меню игры
 					"\tP       Pause\n"
 					"\tESC     Exit\n\n"
 
-					"Press any key...\n");
+					"Press any key to go back\n");
 				_getch(); if (_kbhit()) _getch();
 				break;
 			case 3: return;
 			}
-			system("cls"); printf("%s%s", GAME_TITLE, GAME_MENU);
+			system("cls"); 
+			printf("%s%s", GAME_TITLE, GAME_MENU);
 			p = 1;
 			break;
 		case KEY_UP:
 			if (p > 1) p--;
 			break;
 		case KEY_DOWN:
-			if (p < 4) p++;
+			if (p < 3) p++;
 			break;
 		case KEY_ESC:
 			return;
