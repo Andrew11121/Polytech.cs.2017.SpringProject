@@ -36,7 +36,12 @@ typedef struct {
     float dx, dy;
 } velocity;
 
+/*
+    Return the distance between two points.
+ */
 float angle_between_points(float x1, float y1, float x2, float y2);
+float distance_between_points(float x1, float y1, float x2, float y2);
+
 
 
 
@@ -45,7 +50,7 @@ bool rectangles_intersect(float l1, float t1, float r1, float b1, float l2, floa
 bool rectangle_contains_point(float l, float t, float r, float b, float x, float y);
 
 
-
+float distance_between_points_ex(const point* p1, const point* p2);
 bool rectangles_intersect_ex(const rect* r1, const rect* r2);
 bool rectangle_contains_point_ex(const rect* r, const point* p);
 

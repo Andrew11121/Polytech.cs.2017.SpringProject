@@ -8,7 +8,19 @@ float angle_between_points(float x1, float y1, float x2, float y2)
     return atan2(y2 - y1, x2 - x1);
 }
 
-//distances between points ????? Ilya 
+//distances between points 
+
+float distance_between_points(float x1, float y1, float x2, float y2)
+{
+    float dx = x2 - x1;
+    float dy = y2 - y1;
+    return sqrt(dx * dx + dy * dy);
+}
+
+float distance_between_points_ex(const point* p1, const point* p2)
+{
+    return distance_between_points(p1->x, p1->y, p2->x, p2->y);
+}
 
 
 bool rectangles_intersect(float l1, float t1, float r1, float b1, float l2, float t2, float r2, float b2)
