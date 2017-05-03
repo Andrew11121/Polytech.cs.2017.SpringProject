@@ -1,3 +1,4 @@
+#include "allegro_framework.h"
 #include "playfield.h"
 #include "block.h"
 #include "colors.h"
@@ -16,6 +17,17 @@ static int fall_speed = 30;         // block fall speed
 static int key_delay = 0;           // the amount of time before checking for next keypress
 static int counter = 0;             // used for counting
 
+static void game_over()
+{
+    al_clear_to_color(al_map_rgb(0, 0, 0));
+    al_draw_textf(get_default_font(), white_color, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 - 15, ALLEGRO_ALIGN_CENTER, "GAME OVER!");
+    al_draw_textf(get_default_font(), white_color, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 15, ALLEGRO_ALIGN_CENTER, "You got %d points", score);
+    al_draw_textf(get_default_font(), white_color, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 30, ALLEGRO_ALIGN_CENTER, "You cleared %d lines", lines);
+    al_draw_textf(get_default_font(), white_color, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 + 45, ALLEGRO_ALIGN_CENTER, "You reached level %d", level);
+    al_flip_display();
+    al_rest(2.0);
+    wait_for_keypress();
+}
 
 static void setup_game()
 {
