@@ -1,4 +1,3 @@
-#include "allegro_framework.h"
 #include "playfield.h"
 #include "block.h"
 #include "colors.h"
@@ -6,18 +5,18 @@
 #define SCREEN_WIDTH ((FIELD_WIDTH+5) * BLOCK_SIZE)
 #define SCREEN_HEIGHT ((FIELD_HEIGHT-2) * BLOCK_SIZE)
 
-static Block current_block;    
-static Block next_block;       
-static bool dead = false;           
-static int score = 0;               
-static int lines = 0;               
-static int level = 0;               
-static int fall_delay = 0;          
-static int fall_speed = 30;         
-static int key_delay = 0;           
-static int counter = 0;             
+static Block current_block;    // the block that is falling
+static Block next_block;       // the next block coming down
+static bool dead = false;           // whether we are dead or not
+static int score = 0;               // accumulated score
+static int lines = 0;               // no of cleared lines
+static int level = 0;               // determines block fall speed, increases over time
+static int fall_delay = 0;          // the amount of time before moving a block down
+static int fall_speed = 30;         // block fall speed
+static int key_delay = 0;           // the amount of time before checking for next keypress
+static int counter = 0;             // used for counting
 
-//func for gameover
+
 static void setup_game()
 {
     dead = false;
@@ -29,7 +28,7 @@ static void setup_game()
 
 static void update()
 {
-    
+    //we check input if enough time has passed since the last keypress
     if (key_delay <= 0) {
         key_delay = 5;
 
@@ -69,7 +68,7 @@ static void update()
     }
     key_delay--;
 
-    
+    // if it's time, let the block fall!
     if (fall_delay <= 0) {
         fall_delay = fall_speed;
 
@@ -94,6 +93,7 @@ static void update()
     }
     fall_delay--;
 
+    // falling block speed increases every minute!
     counter++;
     if (counter > 3600) {
         counter = 0;
@@ -101,6 +101,7 @@ static void update()
         fall_speed = 30 - level;
     }
 
+    // add score if we cleared any lines
     int cleared_lines = check_for_lines();
     lines += cleared_lines;
     switch (cleared_lines) {
@@ -121,7 +122,22 @@ static void update()
     }
 }
 
-//func to draw
+static void draw()
+{
+    // draw border
+    ALLEGRO_COLOR border_color = al_map_rgb(0, 63, 128);
+    al_draw_filled_rectangle(0, 0, BLOCK_SIZE, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
+    al_draw_filled_rectangle(SCREEN_WIDTH - (4 * BLOCK_SIZE), 0, SCREEN_WIDTH, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
+    al_draw_filled_rectangle(0, SCREEN_HEIGHT - (2 * BLOCK_SIZE), SCREEN_WIDTH, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
+
+    draw_playfield();
+    draw_block(&current_block);
+    draw_block(&next_block);
+
+    // draw score
+    al_draw_textf(get_default_font(), white_color, 5, SCREEN_HEIGHT - 12, ALLEGRO_ALIGN_LEFT, "Score: %d  Lines: %d", score, lines);
+}
+
 int main(int argc, char *argv[])
 {
     init_framework("tetris", SCREEN_WIDTH, SCREEN_HEIGHT, false);
