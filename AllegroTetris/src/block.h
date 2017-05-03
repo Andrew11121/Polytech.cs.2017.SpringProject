@@ -3,7 +3,8 @@
 
 #include "allegro_framework.h"
 
-typedef struct {
+typedef struct 
+{
     int type;   
     int color;  
     int x, y;   
@@ -12,5 +13,6 @@ typedef struct {
 } Block;
 
 void generate_block_at(Block *block, int x, int y);
-
+void rotate_block_left(Block *block);
+void rotate_block_right(Block *block);
 #endif

@@ -24,4 +24,23 @@ void generate_block_at(Block *block, int x, int y)
     block->data = block_data[i][0];
 }
 
-//need to rotate the blocks in to directions and draw them
+
+void rotate_block_left(Block *block)
+{
+    block->dir--;
+    if (block->dir < 0) {
+        block->dir = 3;
+    }
+    block->data = block_data[block->type][block->dir];
+}
+
+void rotate_block_right(Block *block)
+{
+    block->dir++;
+    if (block->dir > 3) {
+        block->dir = 0;
+    }
+    block->data = block_data[block->type][block->dir];
+}
+
+//draw
