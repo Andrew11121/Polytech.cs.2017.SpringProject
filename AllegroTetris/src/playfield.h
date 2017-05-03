@@ -13,6 +13,6 @@
 void clear_playfield();
 bool is_collision(Block *block, int dx, int dy);
 void draw_playfield();
-
+void copy_block_to_playfield(Block *block);
 
 #endif

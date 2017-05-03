@@ -13,6 +13,16 @@ void clear_playfield()
 }
 
 //copping block to playfield
+void copy_block_to_playfield(Block *block)
+{
+    for (int y = 0; y < 4; y++) {
+        for (int x = 0; x < 4; x++) {
+            if (block->data & (1 << ((y * 4) + x))) {
+                playfield[((block->y + y) * FIELD_WIDTH) + block->x + x] = block->color;
+            }
+        }
+    }
+}
 
 bool is_collision(Block *block, int dx, int dy)
 {
