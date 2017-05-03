@@ -12,7 +12,6 @@ void clear_playfield()
     }
 }
 
-//copping block to playfield
 void copy_block_to_playfield(Block *block)
 {
     for (int y = 0; y < 4; y++) {
@@ -40,7 +39,32 @@ bool is_collision(Block *block, int dx, int dy)
     return false;
 }
 
-//func to check the lines is required
+int check_for_lines()
+{
+    int lines = 0;
+
+    for (int y = 0; y < FIELD_HEIGHT; y++) {
+        int total = 0;
+
+        for (int x = 0; x < FIELD_WIDTH; x++) {
+            if (playfield[(y * FIELD_WIDTH) + x]) {
+                total++;
+            }
+        }
+
+        if (total == FIELD_WIDTH) {
+            for(int i = y; i > 0; i--) {
+                memcpy(&playfield[i * FIELD_WIDTH], &playfield[(i - 1) * FIELD_WIDTH], sizeof(int) * FIELD_WIDTH);
+            }
+
+            memset(&playfield[0], 0, sizeof(int) * FIELD_WIDTH);
+            lines++;
+        }
+    }
+
+    return lines;
+}
+
 void draw_playfield()
 {
     for (int y = 0; y < FIELD_HEIGHT; y++) {
