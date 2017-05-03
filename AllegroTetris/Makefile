@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 
-PROJECT  := tetris
+PROJECT  := AllegroTetris
 
 # ------------------
 # External programs
