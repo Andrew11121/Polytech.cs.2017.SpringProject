@@ -1,3 +1,14 @@
+/*
+test2 :
+figures begin to fall very quickly, impossible to play because of
+
+in function static void update ()
+	if (counter > 60) - 
+	
+
+*/
+
+
 #include "allegro_framework.h"
 #include "playfield.h"
 #include "block.h"
@@ -121,7 +132,7 @@ static void update()
 
     // falling block speed increases every minute!
     counter++;
-    if (counter > 3600) 
+    if (counter > 60) 
     {
         counter = 0;
         level++;

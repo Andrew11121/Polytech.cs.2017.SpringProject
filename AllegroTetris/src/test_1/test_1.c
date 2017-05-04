@@ -1,3 +1,9 @@
+/* test1:
+ too slow speed because of 
+ static int fall_speed = 500; 
+fall_speed = 500 - level; 
+  
+*/
 #include "allegro_framework.h"
 #include "playfield.h"
 #include "block.h"
@@ -13,7 +19,7 @@ static int score = 0;
 static int lines = 0;               
 static int level = 0;               
 static int fall_delay = 0;          
-static int fall_speed = 30;         
+static int fall_speed = 500;         
 static int key_delay = 0;           
 static int counter = 0;             
 static void game_over()
@@ -125,7 +131,7 @@ static void update()
     {
         counter = 0;
         level++;
-        fall_speed = 30 - level;
+        fall_speed = 500 - level;
     }
 
     // add score if we cleared any lines

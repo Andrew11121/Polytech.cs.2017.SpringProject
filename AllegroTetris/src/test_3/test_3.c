@@ -1,3 +1,10 @@
+/*
+test3:
+changed function to rotate block left, using key 'up_button' instead of key'A', but 'A' is more convenient
+*/
+
+
+
 #include "allegro_framework.h"
 #include "playfield.h"
 #include "block.h"
@@ -55,7 +62,7 @@ static void update()
 	            current_block.y++;
         	    score++;
         }
-        else if (is_key_down(ALLEGRO_KEY_A)) 
+        else if (is_key_down(ALLEGRO_KEY_UP)) 
 	{
             key_delay = 10;
             rotate_block_left(&current_block);

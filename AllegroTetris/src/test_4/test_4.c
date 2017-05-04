@@ -1,3 +1,14 @@
+/*
+another way to count points for clearing line, in this version it`s easier to gain points, especially on higher levels, and for cleaning 3 or 4 lines at once
+
+        1 line: score = level * 50 + 50
+        2 lines: score = level * 200 + 200
+        3 lines: score = level * 500 + 500
+        4 lines: score = level * 2200 + 2200
+*/
+
+
+
 #include "allegro_framework.h"
 #include "playfield.h"
 #include "block.h"
@@ -55,7 +66,7 @@ static void update()
 	            current_block.y++;
         	    score++;
         }
-        else if (is_key_down(ALLEGRO_KEY_A)) 
+        else if (is_key_down(ALLEGRO_KEY_UP)) 
 	{
             key_delay = 10;
             rotate_block_left(&current_block);
@@ -131,12 +142,13 @@ static void update()
     // add score if we cleared any lines
     int cleared_lines = check_for_lines();
     lines += cleared_lines;
-    switch (cleared_lines) {
-        case 0: score += 0; break;
-        case 1: score += level * 40 + 40; break;
-        case 2: score += level * 100 + 100; break;
-        case 3: score += level * 300 + 300; break;
-        default: score += level * 1200 + 1200; break;
+    switch (cleared_lines) 
+   {
+     	case 0: score += 0; break;
+        case 1: score += level * 50 + 50; break;
+        case 2: score += level * 200 + 200; break;
+        case 3: score += level * 500 + 500; break;
+        default: score += level * 2200 + 2200; break;
     }
 
     if (dead) 

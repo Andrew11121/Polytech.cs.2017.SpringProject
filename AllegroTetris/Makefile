@@ -1,6 +1,6 @@
 SHELL = /bin/sh
 
-PROJECT  := AllegroTetris
+PROJECT  := test_5
 
 # ------------------
 # External programs
@@ -11,7 +11,7 @@ RM  := rm -rf
 # --------------------
 # Directories & Files
 # --------------------
-D_SRC    := ./src
+D_SRC    := ./src/test_5
 FILES_C  := $(wildcard $(D_SRC)/*.c)
 FILES_O  := $(FILES_C:.c=.o)
 
