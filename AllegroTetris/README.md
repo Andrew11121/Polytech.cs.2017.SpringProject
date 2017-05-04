@@ -48,7 +48,8 @@ make
 To open the project, in console write:
 ````
 ./test_№ 
-````, where № is a number of test
+
+````
 
 ## Authors
 * **Ilya Aliev** - aliev.ilia@yandex.ru
