@@ -44,7 +44,8 @@ static void update()
     if (key_delay <= 0) {
         key_delay = 5;
 
-        if (is_key_down(ALLEGRO_KEY_LEFT) && !is_collision(&current_block, -1, 0)) {
+        if (is_key_down(ALLEGRO_KEY_LEFT) && !is_collision(&current_block, -1, 0)) 
+		{
             current_block.x--;
         }
         else if (is_key_down(ALLEGRO_KEY_RIGHT) && !is_collision(&current_block, 1, 0)) {
@@ -54,7 +55,8 @@ static void update()
             current_block.y++;
             score++;
         }
-        else if (is_key_down(ALLEGRO_KEY_A)) {
+        else if (is_key_down(ALLEGRO_KEY_A)) 
+		{
             key_delay = 10;
             rotate_block_left(&current_block);
             if (is_collision(&current_block, 0, 0)) {
@@ -107,7 +109,8 @@ static void update()
 
     // falling block speed increases every minute!
     counter++;
-    if (counter > 3600) {
+    if (counter > 3600) 
+	{
         counter = 0;
         level++;
         fall_speed = 30 - level;
@@ -116,7 +119,8 @@ static void update()
     // add score if we cleared any lines
     int cleared_lines = check_for_lines();
     lines += cleared_lines;
-    switch (cleared_lines) {
+    switch (cleared_lines) 
+	{
         case 0: score += 0; break;
         case 1: score += level * 40 + 40; break;
         case 2: score += level * 100 + 100; break;
