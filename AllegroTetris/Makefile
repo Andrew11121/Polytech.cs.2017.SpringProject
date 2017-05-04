@@ -15,9 +15,9 @@ D_SRC    := ./src
 FILES_C  := $(wildcard $(D_SRC)/*.c)
 FILES_O  := $(FILES_C:.c=.o)
 
-# ------------
+# -----------
 # Flags 
-# ------------
+# -----------
 CFLAGS  := -Wall
 LFLAGS  :=
 LIBS := `pkg-config --libs allegro-5 allegro_font-5 allegro_image-5 allegro_image-5 allegro_memfile-5 allegro_primitives-5 allegro_image-5 allegro_ttf-5 allegro_main-5`
