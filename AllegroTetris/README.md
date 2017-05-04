@@ -50,11 +50,9 @@ To open the project, in console write:
 ./test_№ 
 
 ````
-
 ## Authors
 * **Ilya Aliev** - aliev.ilia@yandex.ru
 
 * **Andrew Bezborodov** - andrew1000@list.ru
 
-## License
 
