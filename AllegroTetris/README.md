@@ -23,9 +23,37 @@ To rebuild everything from scratch, do the following:
 ````
 make clean
 ````
+To open the project, in console write 
+````
+./AllegroTetris
+````
+Description of tests are included in the file: description_of_tests.txt
+
+To open each test, in Makefile change 
+
+D_SRC    := ./src
+
+to
+
+D_SRC    := ./src/tests/test_№ , where № is a number of test
+
+and PROJECT  := AllegroTetris to 
+
+PROJECT  := test_№ , where № is a number of test
+
+Then, in console write:
+````
+make 
+````
+To open the project, in console write:
+````
+./test_№ 
+````, where № is a number of test
 
 ## Authors
-* **Name Surname** - xxx@spbstu.ru
+* **Ilya Aliev** - aliev.ilia@yandex.ru
+
+* **Andrew Bezborodov** - andrew1000@list.ru
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
