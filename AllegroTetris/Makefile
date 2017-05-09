@@ -1,40 +1,26 @@
-SHELL = /bin/sh
+CC=gcc
+LDFLAGS=-lallegro -lallegro_primitives -lallegro_font -lallegro_image -lallegro_memfile -lallegro_ttf -lallegro_color -lm
+SOURCES=src/allegro_framework.c \
+src/block.c \
+src/colors.c \
+src/mathlib.c \
+src/playfield.c \
+src/tetris.c
+OBJ_DIR=obj
+SRC_DIR=src
+HEADERS=$(SOURCES:.c=.h)
+OBJECTS=$(SOURCES:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+EXECUTABLE=allegrotetris
 
-PROJECT  := AllegroTetris
+all: $(EXECUTABLE) $(OBJECTS)
+$(EXECUTABLE): $(OBJECTS)
+$(CC) $(OBJECTS) -o $@ $(LDFLAGS)
 
-# ------------------
-# External programs
-# ------------------
-CC  := gcc
-RM  := rm -rf
+$(OBJECTS): obj/%.o : src/%.c
+$(CC) -c $< -o $@
 
-# --------------------
-# Directories & Files
-# --------------------
-D_SRC    := ./src
-FILES_C  := $(wildcard $(D_SRC)/*.c)
-FILES_O  := $(FILES_C:.c=.o)
 
-# -----------
-# Flags 
-# -----------
-CFLAGS  := -Wall
-LFLAGS  :=
-LIBS := `pkg-config --libs allegro-5 allegro_font-5 allegro_image-5 allegro_image-5 allegro_memfile-5 allegro_primitives-5 allegro_image-5 allegro_ttf-5 allegro_main-5`
-# ------------
-# Targets 
-# ------------
-default: $(PROJECT)
-
-%.o: %.c
-	$(CC) -c -I $(D_SRC) $(CFLAGS) $< -o $@
-
-$(PROJECT): $(FILES_O)
-	$(CC) -I $(D_SRC) $(LFLAGS) $(FILES_O) -o $@ $(LIBS) -lm
-
-.phony:	clean
 clean:
-	-$(RM) $(FILES_O) $(PROJECT)
-
+rm -f obj/*.o $(EXECUTABLE)
 
  
