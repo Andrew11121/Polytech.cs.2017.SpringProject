@@ -1,0 +1,32 @@
+to open each test, in Makefile change D_SRC    := ./src/tests/test_№
+
+test_1:
+
+ too slow speed because of 
+ static int fall_speed = 500; 
+fall_speed = 500 - level; 
+   
+test_2 :
+
+figures begin to fall very quickly, impossible to play
+in function static void update ()
+	if (counter > 60) - 
+	
+
+test_3:
+
+changed function to rotate block right, using key 'up_button' instead of key'A'
+
+
+test_4:
+another way to count points for clearing line, in this version it`s easier to gain points, especially on higher levels, and for cleaning 3 or 4 lines at once
+
+        1 line: score = level * 50 + 50
+        2 lines: score = level * 200 + 200
+        3 lines: score = level * 500 + 500
+        4 lines: score = level * 2200 + 2200
+
+test_5:
+background color switched to white
+
+

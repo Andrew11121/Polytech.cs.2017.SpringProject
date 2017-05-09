@@ -1,3 +1,8 @@
+/*
+test_5:
+background color switched to white
+*/
+
 #include "allegro_framework.h"
 #include "playfield.h"
 #include "block.h"
@@ -154,7 +159,7 @@ static void update()
 static void draw()
 {
     // draw border
-    ALLEGRO_COLOR border_color = al_map_rgb(235, 150, 225);
+    ALLEGRO_COLOR border_color = al_map_rgb(255, 255, 255);
     al_draw_filled_rectangle(0, 0, BLOCK_SIZE, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
     al_draw_filled_rectangle(SCREEN_WIDTH - (4 * BLOCK_SIZE), 0, SCREEN_WIDTH, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
     al_draw_filled_rectangle(0, SCREEN_HEIGHT - (2 * BLOCK_SIZE), SCREEN_WIDTH, SCREEN_HEIGHT - BLOCK_SIZE, border_color);

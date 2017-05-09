@@ -19,6 +19,7 @@ $(CC) $(OBJECTS) -o $@ $(LDFLAGS)
 $(OBJECTS): obj/%.o : src/%.c
 $(CC) -c $< -o $@
 
+
 clean:
 rm -f obj/*.o $(EXECUTABLE)
 
