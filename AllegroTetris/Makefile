@@ -1,5 +1,5 @@
 
- SHELL = /bin/sh/
+ SHELL = /bin/sh
 
 PROJECT  := project_name
 
