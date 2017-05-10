@@ -1,7 +1,9 @@
 
  SHELL = /bin/sh
 
+
 PROJECT  := AllegroTetris
+
 
 # ------------------
 # External programs
@@ -15,10 +17,9 @@ RM  := rm -rf
 D_SRC    := ./src
 D_TESTS  := $(D_SRC)/tests
 D_UNITY  :=
-HEADERS := $(D_SRC:.c=.h)
+
 
 ENTRY_POINT := $(D_SRC)/tetris.c
-
 
 FILES_PROGR_C :=  $(filter-out $(ENTRY_POINT), $(wildcard $(D_SRC)/*.c))
 FILES_TESTS_C :=  $(wildcard $(D_TESTS)/*.c) $(D_UNITY)/src/unity.c $(D_UNITY)/extras/fixture/src/unity_fixture.c
