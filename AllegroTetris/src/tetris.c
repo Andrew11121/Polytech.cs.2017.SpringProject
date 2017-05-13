@@ -131,12 +131,13 @@ static void update()
     // add score if we cleared any lines
     int cleared_lines = check_for_lines();
     lines += cleared_lines;
-    switch (cleared_lines) {
+    switch (cleared_lines) 
+   {
         case 0: score += 0; break;
-        case 1: score += level * 40 + 40; break;
+        case 1: score += level * 50 + 50; break;
         case 2: score += level * 100 + 100; break;
-        case 3: score += level * 300 + 300; break;
-        default: score += level * 1200 + 1200; break;
+        case 3: score += level * 350 + 350; break;
+        default: score += level * 1300 + 1300; break;
     }
 
     if (dead) 
