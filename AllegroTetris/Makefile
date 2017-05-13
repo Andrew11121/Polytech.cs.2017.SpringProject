@@ -16,7 +16,8 @@ RM  := rm -rf
 # --------------------
 D_SRC    := ./src
 D_TESTS  := $(D_SRC)/tests
-D_UNITY  := 
+D_UNITY  :=
+
 
 ENTRY_POINT := $(D_SRC)/tetris.c
 
@@ -34,10 +35,11 @@ PROJECT_WITH_TESTS_O  := $(PROJECT_WITH_TESTS:.c=.o)
 # ------------
 CFLAGS  := -Wall
 CFLAGS  += -std=c99
-LFLAGS  :=
+
+LFLAGS  := -I/allegro5/addons/ -lallegro -lallegro_primitives -lallegro_font -lallegro_image -lallegro_memfile -lallegro_ttf -lallegro_color -lm
 
 INCS := -I $(D_UNITY)/src -I $(D_UNITY)/extras/fixture/src 
-ALLEGRO := -I/allegro5/addons/ -lallegro -lallegro_main -lallegro_image -lallegro_dialog -lallegro_primitives -lallegro_ttf -lallegro_font -lm
+
 # ------------
 # Targets 
 # ------------
@@ -47,18 +49,19 @@ tests: test-$(PROJECT)
 
 check: test-$(PROJECT)
 	./test-$(PROJECT)
+ 
 
 %.o: %.c
 	$(CC) -c -I $(D_SRC) $(CFLAGS) $(INCS) $< -o $@ -lm 
 
 $(PROJECT): $(PROJECT_WITHOUT_TESTS_O)
-	$(CC) -I $(D_SRC) $(LFLAGS) $(PROJECT_WITHOUT_TESTS_O) -o  $@ $(ALLEGRO) 
+	$(CC)	-I	$(D_SRC)	$(LFLAGS)	$(PROJECT_WITHOUT_TESTS_O) -o $@ $(LFLAGS) 
 
 test-$(PROJECT): $(PROJECT_WITH_TESTS_O)
-	$(CC) -I $(D_SRC) $(LFLAGS) $(PROJECT_WITH_TESTS_O) -o $@ $(ALLEGRO) $(INCS) 
+	$(CC)	-I	$(D_SRC)	$(LFLAGS)	$(PROJECT_WITH_TESTS_O) -o $@	$(LFLAGS) $(INCS) 
 
 .phony:	clean
 clean:
-	-$(RM) $(PROJECT_WITH_TESTS_O) $(D_SRC)/main.o $(PROJECT) test-$(PROJECT)
+	-$(RM)	$(PROJECT_WITH_TESTS_O)	$(D_SRC)/tetris.o $(PROJECT) test-$(PROJECT)
 
 

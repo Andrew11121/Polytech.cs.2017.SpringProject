@@ -27,29 +27,9 @@ To open the project, in console write
 ````
 ./AllegroTetris
 ````
-Description of tests are included in the file: description_of_tests.txt
-
-To open each test, in Makefile change 
-
-D_SRC    := ./src
-
-to
-
-D_SRC    := ./src/tests/test_№ , where № is a number of test
-
-and PROJECT  := AllegroTetris to 
-
-PROJECT  := test_№ , where № is a number of test
-
-Then, in console write:
-````
-make 
-````
-To open the project, in console write:
-````
-./test_№ 
 
 ````
+
 ## Authors
 * **Ilya Aliev** - aliev.ilia@yandex.ru
 

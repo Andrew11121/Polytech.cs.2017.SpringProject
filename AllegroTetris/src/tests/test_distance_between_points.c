@@ -7,7 +7,7 @@ TEST_GROUP(TestDistanceBetweenPoints);
 
 TEST_GROUP_RUNNER(TestDistanceBetweenPoints)
 {
-RUN_TEST_CASE(TestDistanceBetweenPoints, FuncionDistanceBetweenPoints);
+RUN_TEST_CASE(TestDistanceBetweenPoints, FunctionDistanceBetweenPoints);
 }
 
 TEST_SETUP(TestDistanceBetweenPoints)
@@ -18,7 +18,7 @@ TEST_TEAR_DOWN(TestDistanceBetweenPoints)
 {
 }
 
-TEST(TestDistanceBetweenPoints, FuncionDistanceBetweenPoints)
+TEST(TestDistanceBetweenPoints, FunctionDistanceBetweenPoints)
 {
 float x1, x2, y1, y2;
 float dx = x2 - x1;
