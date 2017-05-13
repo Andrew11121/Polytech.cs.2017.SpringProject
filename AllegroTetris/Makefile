@@ -36,7 +36,7 @@ PROJECT_WITH_TESTS_O  := $(PROJECT_WITH_TESTS:.c=.o)
 CFLAGS  := -Wall
 CFLAGS  += -std=c99
 
-LFLAGS  := -I/res/allegro5/addons/ -lallegro -lallegro_primitives -lallegro_font -lallegro_image -lallegro_memfile -lallegro_ttf -lallegro_color -lm
+LFLAGS  := -I -lallegro -lallegro_primitives -lallegro_font -lallegro_image -lallegro_memfile -lallegro_ttf -lallegro_color -lm
 
 INCS := -I $(D_UNITY)/src -I $(D_UNITY)/extras/fixture/src 
 
