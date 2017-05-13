@@ -20,11 +20,11 @@ TEST_TEAR_DOWN(TestDistanceBetweenPoints)
 
 TEST(TestDistanceBetweenPoints, FuncionDistanceBetweenPoints)
 {
-
+float x1, x2, y1, y2;
 float dx = x2 - x1;
 float dy = y2 - y1;
 return sqrt(dx * dx + dy * dy);
 
-TEST_ASSERT_EQUAL_INT_ARRAY( a, b, 10000);
+TEST_ASSERT_EQUAL_INT( 100, 100);
 
 }

@@ -1,0 +1,30 @@
+#include <math.h>
+#include "unity.h"
+#include "unity_fixture.h"
+#include "mathlib.h"
+
+TEST_GROUP(TestAngleBetweenPoints);
+
+TEST_GROUP_RUNNER(TestAngleBetweenPoints)
+{
+RUN_TEST_CASE(TestAngleBetweenPoints, FuncionAngleBetweenPoints);
+}
+
+TEST_SETUP(TestAngleBetweenPoints)
+{
+}
+
+TEST_TEAR_DOWN(TestAngleBetweenPoints)
+{
+}
+
+TEST(TestAngleBetweenPoints, FunctionAngleBetweenPoints)
+
+{
+
+float x1, x2, y1, y2;
+
+return atan2(y2 - y1, x2 - x1);
+TEST_ASSERT_EQUAL_INT_ARRAY( 100, 100, 20);
+}
+
