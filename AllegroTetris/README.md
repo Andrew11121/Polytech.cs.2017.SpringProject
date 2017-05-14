@@ -27,7 +27,9 @@ To open the project, in console write
 ````
 ./AllegroTetris
 ````
-
+To build tests, do the following:
+````
+make D_UNITY=res/Unity check
 ````
 
 ## Authors
