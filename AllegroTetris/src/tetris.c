@@ -9,13 +9,13 @@
 static Block current_block;    
 static Block next_block;       
 static bool dead = false;           
-static unsigned int score = 0;               
-static unsigned int lines = 0;
-static unsigned int level = 0;
-static unsigned int fall_delay = 0;
-static unsigned int fall_speed = 30;
-static unsigned int key_delay = 0;
-static unsigned int counter = 0;
+static int score = 0;               
+static int lines = 0;
+static int level = 0;
+static int fall_delay = 0;
+static int fall_speed = 30;
+static int key_delay = 0;
+static int counter = 0;
 static void game_over()
 {
     al_clear_to_color(al_map_rgb(0, 0, 0));
@@ -59,19 +59,19 @@ static void update()
       }
         else if (is_key_down(ALLEGRO_KEY_A)) 
       {
-            key_delay = 10;
+            key_delay = 12;
             rotate_block_left(&current_block);
             if (is_collision(&current_block, 0, 0)) 
          {
-	                rotate_block_right(&current_block);
-	     }
+            rotate_block_right(&current_block);
+	 }
       }
 
         else if (is_key_down(ALLEGRO_KEY_S)) 
       {
-            key_delay = 10;
+            key_delay = 12;
             rotate_block_right(&current_block);
-            if (is_collision(&current_block, 0, 0)) 
+               if (is_collision(&current_block, 0, 0)) 
             {
 	                rotate_block_left(&current_block);
             }
@@ -81,12 +81,12 @@ static void update()
             key_delay = 20;
             while (!is_collision(&current_block, 0, 1)) 
             {
-                	current_block.y++;
+               current_block.y++;
             }
       }
         else 
       {
-            key_delay = 0;
+         key_delay = 0;
       }
     }
 
@@ -143,15 +143,16 @@ static void update()
     }
 
     if (dead) 
-	{
-	        game_over();
-	        setup_game();
-	}
+   {
+      game_over();
+      setup_game();
+   }
 
-    if (is_key_down(ALLEGRO_KEY_ESCAPE)) 
+   if (is_key_down(ALLEGRO_KEY_ESCAPE)) 
    {
 	        quit();
    }
+  
 }
 
 static void draw()
@@ -159,7 +160,7 @@ static void draw()
     // draw border
     ALLEGRO_COLOR border_color = al_map_rgb(235, 150, 225);
     al_draw_filled_rectangle(0, 0, BLOCK_SIZE, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
-    al_draw_filled_rectangle(SCREEN_WIDTH - (4 * BLOCK_SIZE), 0, SCREEN_WIDTH, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
+    al_draw_filled_rectangle(SCREEN_WIDTH - (4 * BLOCK_SIZE), 0, SCREEN_WIDTH, SCREEN_HEIGHT -       BLOCK_SIZE, border_color);
     al_draw_filled_rectangle(0, SCREEN_HEIGHT - (2 * BLOCK_SIZE), SCREEN_WIDTH, SCREEN_HEIGHT - BLOCK_SIZE, border_color);
 
     draw_playfield();
