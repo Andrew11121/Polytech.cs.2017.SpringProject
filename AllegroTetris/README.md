@@ -15,12 +15,13 @@ doc/         | documentation
 res/         | static resources
 
 ### Build
-To build the project, do the following:
-
 To install allegro library
 `````
 sudo apt-get install liballegro5-dev
 `````
+
+To build the project, do the following:
+
 ````
 make
 ````
