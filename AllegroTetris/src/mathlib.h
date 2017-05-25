@@ -1,3 +1,4 @@
+#pragma once
 #ifndef MATHLIB_H
 #define MATHLIB_H
 #include <stdbool.h>	

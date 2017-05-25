@@ -1,9 +1,13 @@
+#pragma once
 #ifndef INCLUDED_BLOCK_H
 #define INCLUDED_BLOCK_H
-
+#define block_wide 7
+#define block_height 4
+#define null_coord 0
 #include "allegro_framework.h"
 
-typedef struct {
+typedef struct 
+{
     int type;   // what kind of tetromino (e.g. I, O, L...)
     int color;  // what color index the block has
     int x, y;   // location in the playfield

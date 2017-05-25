@@ -1,3 +1,4 @@
+#pragma once
 #ifndef INCLUDED_PLAYFIELD_H
 #define INCLUDED_PLAYFIELD_H
 
@@ -15,6 +16,5 @@ void copy_block_to_playfield(Block *block);
 bool is_collision(Block *block, int dx, int dy);
 int check_for_lines();
 void draw_playfield();
-
 
 #endif

@@ -9,13 +9,13 @@
 static Block current_block;    
 static Block next_block;       
 static bool dead = false;           
-static int score = 0;               
-static int lines = 0;               
-static int level = 0;               
-static int fall_delay = 0;          
-static int fall_speed = 30;         
-static int key_delay = 0;           
-static int counter = 0;             
+static unsigned int score = 0;               
+static unsigned int lines = 0;
+static unsigned int level = 0;
+static unsigned int fall_delay = 0;
+static unsigned int fall_speed = 30;
+static unsigned int key_delay = 0;
+static unsigned int counter = 0;
 static void game_over()
 {
     al_clear_to_color(al_map_rgb(0, 0, 0));
@@ -45,62 +45,64 @@ static void update()
         key_delay = 5;
 
         if (is_key_down(ALLEGRO_KEY_LEFT) && !is_collision(&current_block, -1, 0)) 
-	{
+      {
             current_block.x--;
-        }
-        else if (is_key_down(ALLEGRO_KEY_RIGHT) && !is_collision(&current_block, 1, 0)) 	{
+      }
+        else if (is_key_down(ALLEGRO_KEY_RIGHT) && !is_collision(&current_block, 1, 0)) 	
+      {
             current_block.x++;
-        }
-        else if (is_key_down(ALLEGRO_KEY_DOWN) && !is_collision(&current_block, 0, 1)) 		{
+      }
+        else if (is_key_down(ALLEGRO_KEY_DOWN) && !is_collision(&current_block, 0, 1)) 		
+      {
 	            current_block.y++;
         	    score++;
-        }
+      }
         else if (is_key_down(ALLEGRO_KEY_A)) 
-	{
+      {
             key_delay = 10;
             rotate_block_left(&current_block);
             if (is_collision(&current_block, 0, 0)) 
-		{
+         {
 	                rotate_block_right(&current_block);
-	        }
-        }
+	     }
+      }
 
         else if (is_key_down(ALLEGRO_KEY_S)) 
-	{
+      {
             key_delay = 10;
             rotate_block_right(&current_block);
             if (is_collision(&current_block, 0, 0)) 
-		{
+            {
 	                rotate_block_left(&current_block);
-	        }
-        }
+            }
+      }
         else if (is_key_down(ALLEGRO_KEY_SPACE)) 
-	{
+      {
             key_delay = 20;
             while (!is_collision(&current_block, 0, 1)) 
-		{
+            {
                 	current_block.y++;
-            	}
-        }
+            }
+      }
         else 
-	{
+      {
             key_delay = 0;
-        }
+      }
     }
 
     key_delay--;
 
     // if it's time, let the block fall!
     if (fall_delay <= 0) 
-	{
+   {
        	 fall_delay = fall_speed;
 
         if (is_collision(&current_block, 0, 1)) 
-	{
+      {
             if (current_block.y == 0) 
-		{
+         {
                 	dead = true;
-            	}
+         }
 
             copy_block_to_playfield(&current_block);
 
@@ -111,11 +113,11 @@ static void update()
 
             // generate a new next block
             generate_block_at(&next_block, FIELD_WIDTH, 4);
-        }
+      }
         else 
-	{
+      {
             current_block.y++;
-        }
+      }
    }
     fall_delay--;
 
@@ -147,9 +149,9 @@ static void update()
 	}
 
     if (is_key_down(ALLEGRO_KEY_ESCAPE)) 
-	{
+   {
 	        quit();
-    	}
+   }
 }
 
 static void draw()

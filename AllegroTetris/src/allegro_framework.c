@@ -83,43 +83,22 @@ void init_framework(const char *title, int window_width, int window_height, bool
 	al_change_directory(al_path_cstr(path, '/'));
 	al_destroy_path(path);
 
-    if (!al_install_keyboard())
-        log_error("Failed to install keyboard");
-
-    if (!al_install_mouse())
-        log_error("Failed to install mouse");
-
-    if (!al_init_primitives_addon())
-        log_error("Failed to init primitives addon");
-
-    if (!al_init_image_addon())
-        log_error("Failed to init image addon");
-
     al_init_font_addon();
     default_font = al_create_builtin_font();
-    if (!default_font)
-        log_error("Failed to create builtin font");
 
     event_queue = al_create_event_queue();
-    if (!event_queue)
-        log_error("Failed to create event queue");
-
+   
     if (fullscreen)
         al_set_new_display_flags(ALLEGRO_FULLSCREEN_WINDOW);
     else
         al_set_new_display_flags(ALLEGRO_WINDOWED);
 
-    //al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, 1, ALLEGRO_SUGGEST);
-    //al_set_new_display_option(ALLEGRO_SAMPLES, 8, ALLEGRO_SUGGEST);
-
     display = al_create_display(window_width, window_height);
-    if (!display)
-        log_error("Failed to create display @ %dx%d", window_width, window_height);
+   
     al_set_window_title(display, title);
 
     timer = al_create_timer(1.0 / 60);
-    if (!timer)
-        log_error("Failed to create timer");
+   
 
     al_register_event_source(event_queue, al_get_keyboard_event_source());
     al_register_event_source(event_queue, al_get_mouse_event_source());
@@ -152,7 +131,8 @@ void init_framework(const char *title, int window_width, int window_height, bool
 
 void destroy_framework()
 {
-    if (default_font) {
+    if (default_font) 
+    {
         al_destroy_font(default_font);
         default_font = NULL;
     }
@@ -162,17 +142,20 @@ void destroy_framework()
         timer = NULL;
     }
 
-    if (display) {
+    if (display) 
+    {
         al_destroy_display(display);
         display = NULL;
     }
 
-    if (event_queue) {
+    if (event_queue) 
+    {
         al_destroy_event_queue(event_queue);
         event_queue = NULL;
     }
 
-    if (logfile) {
+    if (logfile) 
+    {
         al_fclose(logfile);
         logfile = NULL;
     }
@@ -188,11 +171,13 @@ void run_game_loop(void (*update_proc)(), void (*render_proc)())
     bool should_redraw = true;
     al_start_timer(timer);
 
-    while (!is_done) {
+    while (!is_done) 
+   {
         ALLEGRO_EVENT event;
         al_wait_for_event(event_queue, &event);
 
-        switch (event.type) {
+        switch (event.type) 
+      {
             case ALLEGRO_EVENT_TIMER:
                 should_redraw = true;
                 if (!is_paused)
@@ -217,7 +202,8 @@ void run_game_loop(void (*update_proc)(), void (*render_proc)())
 
             case ALLEGRO_EVENT_KEY_CHAR:
                 if ((event.keyboard.modifiers & ALLEGRO_KEYMOD_ALT) &&
-                     event.keyboard.keycode == ALLEGRO_KEY_ENTER) {
+                     event.keyboard.keycode == ALLEGRO_KEY_ENTER) 
+                {
                     al_set_display_flag(display, ALLEGRO_FULLSCREEN_WINDOW, !(al_get_display_flags(display) & ALLEGRO_FULLSCREEN_WINDOW));
                 }
                 break;
@@ -252,14 +238,15 @@ void run_game_loop(void (*update_proc)(), void (*render_proc)())
                 break;
         }
 
-        if (should_redraw && al_is_event_queue_empty(event_queue) && !is_paused) {
+        if (should_redraw && al_is_event_queue_empty(event_queue) && !is_paused) 
+      {
             should_redraw = false;
             al_set_target_bitmap(al_get_backbuffer(display));
             al_clear_to_color(al_map_rgb(0, 0, 0));
             render_proc();
             al_flip_display();
-        }
-    }
+      }
+   }
 }
 
 void quit()

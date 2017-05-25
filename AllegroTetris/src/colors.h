@@ -1,3 +1,4 @@
+#pragma once
 #ifndef INCLUDED_COLORS_H
 #define INCLUDED_COLORS_H
 

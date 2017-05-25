@@ -1,3 +1,4 @@
+#pragma once
 #ifndef INCLUDED_ALLEGRO_FRAMEWORK_H
 #define INCLUDED_ALLEGRO_FRAMEWORK_H
 
@@ -10,11 +11,6 @@
 #include <allegro5/allegro_primitives.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_image.h>
-
-#define log_message(...) write_logfile(LOG_MESSAGE, __VA_ARGS__);
-#define log_warning(...) write_logfile(LOG_WARNING, __VA_ARGS__);
-#define log_error(...)   write_logfile(LOG_ERROR, __VA_ARGS__);
-
 
 enum 
 {
