@@ -116,7 +116,7 @@ static void update()
       }
         else 
       {
-            current_block.y++;
+         current_block.y++;
       }
    }
     fall_delay--;
