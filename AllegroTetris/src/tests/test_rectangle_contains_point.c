@@ -23,7 +23,7 @@ TEST(TestRectangleContainsPoint, FunctionRectangleContainsPoint)
 
 {
 float x, l, r, y, t ,b;
-  return !(x < l || x > r || y < t || y > b);
+  return !(x < r || x > l || y < b || y > t);
 TEST_ASSERT_EQUAL_INT_ARRAY( 100, 100, 20);
 }
 

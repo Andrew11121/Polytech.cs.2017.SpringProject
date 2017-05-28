@@ -24,7 +24,7 @@ TEST(TestRectanglesIntersect, FunctionRectanglesIntersect)
 
 float l1, t1, r1, b1, l2, t2, r2, b2;
 
-return !(r1 < l2 || b1 < t2 || l1 > r2 || t1 > b2);
+return !(r1 > l2 || b1 > t2 || l1 > r2 || t1 < b2);
 
 TEST_ASSERT_EQUAL_INT_ARRAY( 100, 100, 100);
 }

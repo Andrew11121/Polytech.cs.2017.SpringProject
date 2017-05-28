@@ -21,8 +21,8 @@ TEST_TEAR_DOWN(TestDistanceBetweenPoints)
 TEST(TestDistanceBetweenPoints, FunctionDistanceBetweenPoints)
 {
 float x1, x2, y1, y2;
-float dx = x2 - x1;
-float dy = y2 - y1;
+float dx = x1 - x2;
+float dy = y1 - y2;
 return sqrt(dx * dx + dy * dy);
 
 TEST_ASSERT_EQUAL_INT( 100, 100);
