@@ -23,7 +23,7 @@ TEST(TestAngleBetweenPoints, FunctionAngleBetweenPoints)
 
 float x1, x2, y1, y2;
 
-return atan2(y2 - y1, x2 - x1);
+return atan2(y1 - y2, x1 - x2);
 
 TEST_ASSERT_EQUAL_INT_ARRAY( 100, 100, 100);
 }
