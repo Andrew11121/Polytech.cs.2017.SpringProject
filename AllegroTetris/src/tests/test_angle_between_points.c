@@ -11,6 +11,7 @@ RUN_TEST_CASE(TestAngleBetweenPoints, FunctionAngleBetweenPoints);
 
 TEST_SETUP(TestAngleBetweenPoints)
 {
+
 }
 
 TEST_TEAR_DOWN(TestAngleBetweenPoints)
@@ -20,8 +21,8 @@ TEST_TEAR_DOWN(TestAngleBetweenPoints)
 TEST(TestAngleBetweenPoints, FunctionAngleBetweenPoints)
 
 {
-
 float x1, x2, y1, y2;
+
 
 return atan2(y1 - y2, x1 - x2);
 
