@@ -17,14 +17,15 @@ TEST_SETUP(TestDistanceBetweenPoints)
 TEST_TEAR_DOWN(TestDistanceBetweenPoints)
 {
 }
-
+//testing distance between points: comparing expected result with a result that we get from the func
 TEST(TestDistanceBetweenPoints, FunctionDistanceBetweenPoints)
 {
-float x1, x2, y1, y2;
-float dx = x1 - x2;
-float dy = y1 - y2;
-return sqrt(dx * dx + dy * dy);
+float x1 = 1, x2 = 1, y1 = 1, y2 = 3, a, b;
+float dx = x2 - x1;
+float dy = y2 - y1;
+a = 2;
+b = sqrt(dx * dx + dy * dy);
 
-TEST_ASSERT_EQUAL_INT( 100, 100);
+TEST_ASSERT_EQUAL_FLOAT(a, b);
 
 }
