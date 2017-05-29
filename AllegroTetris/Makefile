@@ -36,10 +36,10 @@ PROJECT_WITH_TESTS_O  := $(PROJECT_WITH_TESTS:.c=.o)
 CFLAGS  := -Wall
 CFLAGS  += -std=c99
 
-LFLAGS  := -I/allegro5/addons/ -lallegro -lallegro_primitives -lallegro_font -lallegro_image -lallegro_memfile -lallegro_ttf -lallegro_color -lm
+LFLAGS  := 
 
 INCS := -I $(D_UNITY)/src -I $(D_UNITY)/extras/fixture/src 
-
+ALLEGRO := -I/allegro5/addons/ -lallegro -lallegro_primitives -lallegro_font -lallegro_image -lallegro_memfile -lallegro_ttf -lallegro_color -lm
 # ------------
 # Targets 
 # ------------
@@ -55,10 +55,10 @@ check: test-$(PROJECT)
 	$(CC) -c -I $(D_SRC) $(CFLAGS) $(INCS) $< -o $@ -lm 
 
 $(PROJECT): $(PROJECT_WITHOUT_TESTS_O)
-	$(CC)	-I	$(D_SRC)	$(LFLAGS)	$(PROJECT_WITHOUT_TESTS_O) -o $@ $(LFLAGS) 
+	$(CC)	-I	$(D_SRC)	$(LFLAGS)	$(PROJECT_WITHOUT_TESTS_O) -o $@ $(ALLEGRO) 
 
 test-$(PROJECT): $(PROJECT_WITH_TESTS_O)
-	$(CC)	-I	$(D_SRC)	$(LFLAGS)	$(PROJECT_WITH_TESTS_O) -o $@	$(LFLAGS) $(INCS) 
+	$(CC)	-I	$(D_SRC)	$(LFLAGS)	$(PROJECT_WITH_TESTS_O) -o $@	$(ALLEGRO) $(INCS) 
 
 .phony:	clean
 clean:
