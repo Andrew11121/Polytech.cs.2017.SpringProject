@@ -17,24 +17,29 @@ TEST_SETUP(TestIsCollision)
 TEST_TEAR_DOWN(TestIsCollision)
 {
 }
-
+//testing collision of figures: comparing an expected result from test to a result from program with current meanings
 TEST(TestIsCollision, FunctionIsCollision)
 
 {
-Block *block;
- int dx;
-int y;
- int dy ;
-int x;
+    static int playfield[FIELD_HEIGHT * FIELD_WIDTH] = { 0 };
+    Block *block;
+    int dx, dy;
+    int a = 1 , b = 0;
+     for (int y = 0; y < 4; y ++) 
+     {
+     for (int x = 0; x < 4; x ++) 
+       {
+          if ((((block->x + dx + x < 0) || (block->y + dy + y < 0) ||
+             (block->x + dx + x >= FIELD_WIDTH) || (block->y + dy + y >= FIELD_HEIGHT)) ||
+             (playfield[((block->y + dy + y) * FIELD_WIDTH) + block->x + dx + x] != 0)) &&
+             (block->data & (1 << ((y * 4) + x)))) 
+          {
+             return a;
+          }
+      }
+   }
+    return b;
 
-
- if ((((block->x + dx  < 0) || (block->y + dy < 0) ||
-            (block->x + dx + x >= FIELD_WIDTH) && (block->y + dy + y <= FIELD_HEIGHT)) &&
-            (block->y & (1 << ((y * 4) + x)))) )
-         {
-             return true;
-         }
-
-TEST_ASSERT_EQUAL_INT_ARRAY( 10, 16, 20);
+TEST_ASSERT_EQUAL_INT_ARRAY(is_collision(0, 0, 0), a, 100);
 }
 

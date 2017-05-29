@@ -10,10 +10,10 @@ RUN_TEST_GROUP(TestRectangleContainsPoint);
 RUN_TEST_GROUP(TestRectanglesIntersect);
 RUN_TEST_GROUP(TestCirclesIntersect);
 RUN_TEST_GROUP(TestCircleContainsPoint);
-//RUN_TEST_GROUP(TestIsCollision);
-//RUN_TEST_GROUP(TestCopyBlockToPlayfield);
+RUN_TEST_GROUP(TestIsCollision);
 RUN_TEST_GROUP(TestCheckForLines);
-//RUN_TEST_GROUP(TestDrawPlayfield);
+RUN_TEST_GROUP(TestQuit);
+RUN_TEST_GROUP(TestRollDice);
 
 }
 
