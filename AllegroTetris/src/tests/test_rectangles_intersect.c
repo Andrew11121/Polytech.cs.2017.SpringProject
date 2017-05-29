@@ -22,10 +22,12 @@ TEST(TestRectanglesIntersect, FunctionRectanglesIntersect)
 
 {
 
-float l1, t1, r1, b1, l2, t2, r2, b2;
+float l1=0.4, t1=2, r1=1, b1=2, l2=2, t2=3, r2=1, b2=1;
+float b=0;
+if (r1 < l2 || b1 < t2 || l1 < r2 || t1 > b2)
+b=1;
 
-return !(r1 > l2 || b1 > t2 || l1 > r2 || t1 < b2);
 
-TEST_ASSERT_EQUAL_INT_ARRAY( 100, 100, 100);
+TEST_ASSERT_EQUAL_FLOAT( b, 1);
 }
 

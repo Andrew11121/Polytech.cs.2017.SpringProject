@@ -67,7 +67,7 @@ int check_for_lines()
       {
             for(int i = y; i > 0; i--) 
          {
-                memcpy(&playfield[i * FIELD_WIDTH], &playfield[(i - 1) * FIELD_WIDTH], sizeof(int) * FIELD_WIDTH);
+                memcpy(&playfield[i * FIELD_WIDTH], &playfield[(i - 1) * FIELD_WIDTH], sizeof(int) *      FIELD_WIDTH);
          }
 
             memset(&playfield[0], 0, sizeof(int) * FIELD_WIDTH);
