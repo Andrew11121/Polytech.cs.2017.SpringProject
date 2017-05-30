@@ -1,46 +1,68 @@
-# polytech.cs.2017.spring_project
-Template for Course Project
+# Игра Тетрис
 
-## Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Directory structure
-The source code is organized as follows:
+## Информация
+Проект написан на языке C. Unit-тесты были написаны с истользованием фреймворка Unity.
 
-Subdirectory | Description
--------------|-------------------
-src/         | source files 
-src/tests    | unit tests 
-doc/         | documentation 
-res/         | static resources
+### Интерфейс
+Командная строка, где сначала пишется путь к программе, а следом путь кфайлу.
+![Image alt](https://github.com/misterxddd/polytech.cs.2017.spring_project/raw/master/doc/res/image1.png)
 
-### Build
-To install allegro library
-`````
+### Запуск
+Запуск игры осуществляется при помощи командной строки. Сначала нужно написать путь к программе.
+
+### Структура директории
+Файлы в директории лежат следующим образом:
+
+  Каталог    |   Описание
+-------------|--------------------------
+src/         | файлы исходного кода 
+src/tests    | unit-тесты
+doc/         | документация
+doc/res/     | ресурсы для документации
+
+### Сборка
+Для того, чтобы собрать проект напишите следующее:
+
+Чтобы установить библиотеку Allegro
+
+````
 sudo apt-get install liballegro5-dev
-`````
+````
 
-To build the project, do the following:
+Чтобы выполнить сборку игры:
 
 ````
 make
 ````
-To rebuild everything from scratch, do the following:
+Чтобы пересобрать все с нуля, выполните следующие действия::
 ````
 make clean
 ````
-To open the project, in console write 
+Чтобы открыть игру (тетрис), в консоли напишите: 
 ````
 ./AllegroTetris
 ````
-To build tests, do the following:
+Для запуска тестов необходимо ввести следующую команду:
 ````
 make D_UNITY=res/Unity check
 ````
+Для сборки документации:
+````
+make doxygen
+````
+Для сборки документации в формате PDF:
+````
+make pdf
+````
+Для сборки документации в формате HTML:
+````
+make html
+````
 
-## Authors
+## Авторы
 * **Ilya Aliev** - aliev.ilia@yandex.ru
-
 * **Andrew Bezborodov** - andrew1000@list.ru
-
+## Лицензия
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
