@@ -2,7 +2,13 @@
 #include "playfield.h"
 #include "block.h"
 #include "colors.h"
-
+/** @file tetris.c
+*
+@brief Основной файл.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 #define SCREEN_WIDTH ((FIELD_WIDTH+5) * BLOCK_SIZE)
 #define SCREEN_HEIGHT ((FIELD_HEIGHT-2) * BLOCK_SIZE)
 

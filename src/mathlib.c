@@ -1,7 +1,13 @@
 #include "mathlib.h"
 #include <math.h>
 #include <stdbool.h>
-
+/** @file mathlib.c
+*
+@brief Математические функции, необходимые для рассчета движения фигур.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 
 float angle_between_points(float x1, float y1, float x2, float y2)
 {

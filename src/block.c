@@ -1,6 +1,13 @@
 #include "block.h"
 #include "playfield.h"
 #include "colors.h"
+/** @file block.c
+*
+@brief Здесь содержатся функции создания, генерации и условия поворота фигур в игре.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 
 // each block's 4 possible rotations are stored in an int
 static int block_data[block_wide][block_height] =

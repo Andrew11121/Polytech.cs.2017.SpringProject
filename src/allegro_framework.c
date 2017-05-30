@@ -3,7 +3,13 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
+/** @file allegro_framework.c
+*
+@brief Здесь содержатся функции, необходимые для запуска программы, используя команды библиотеки Аллегро.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 static ALLEGRO_EVENT_QUEUE *event_queue = NULL;
 static ALLEGRO_DISPLAY *display = NULL;
 static ALLEGRO_TIMER *timer = NULL;

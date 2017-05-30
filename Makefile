@@ -73,5 +73,5 @@ pdf: doxygen
 	make -C $(D_DOC)/output/latex
 .phony:	clean
 clean:
-	-$(RM) $(PROJECT_WITH_TESTS_O) $(D_SRC)/main.o $(PROJECT) test-$(PROJECT) $(D_DOC)/output
+	-$(RM) $(PROJECT_WITH_TESTS_O) $(D_SRC)/tetris.o $(PROJECT) test-$(PROJECT) $(D_DOC)/output
 

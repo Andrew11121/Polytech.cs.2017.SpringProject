@@ -1,6 +1,12 @@
 #include "playfield.h"
 #include "colors.h"
-
+/** @file playfield.c
+*
+@brief Функции для работы с игровым полем.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 static int playfield[FIELD_HEIGHT * FIELD_WIDTH] = { 0 };
 
 void clear_playfield()

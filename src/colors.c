@@ -1,5 +1,11 @@
 #include "colors.h"
-
+/** @file colors.c
+*
+@brief Запись и передача разных цветов для фигур в тетрисе.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 static ALLEGRO_COLOR color_index[MAX_COLORS];
 
 void setup_color_index()
