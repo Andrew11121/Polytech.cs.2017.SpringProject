@@ -65,6 +65,7 @@ void draw_block(Block *block)
                 int x1 = x0 + BLOCK_SIZE;
                 int y1 = y0 + BLOCK_SIZE;
                 al_draw_filled_rectangle(x0, y0, x1, y1, get_color_by_index(block->color));
+
          }
       }
     }
