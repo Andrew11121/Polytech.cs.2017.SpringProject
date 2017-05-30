@@ -17,7 +17,9 @@ TEST_SETUP(TestIsCollision)
 TEST_TEAR_DOWN(TestIsCollision)
 {
 }
-//testing collision of figures: comparing an expected result from test to a result from program with current meanings
+/** \fn TEST(TestIsCollision, FunctionIsCollision) 
+тестирование столкновения фигур: сравнение ожидаемого результата из теста с результатом из программы с текущими значениями
+*/
 TEST(TestIsCollision, FunctionIsCollision)
 
 {

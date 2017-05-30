@@ -14,7 +14,13 @@
 #define log_message(...) write_logfile(LOG_MESSAGE, __VA_ARGS__);
 #define log_warning(...) write_logfile(LOG_WARNING, __VA_ARGS__);
 #define log_error(...)   write_logfile(LOG_ERROR, __VA_ARGS__);
-
+/** @file allegro_framework.h
+*
+@brief Заголовочный файл для файла с функциями, необходимыми для запуска программы, используя команды библиотеки Аллегро.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 
 enum 
 {

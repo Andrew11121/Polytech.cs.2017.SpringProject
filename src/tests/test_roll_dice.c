@@ -22,7 +22,10 @@ TEST_SETUP(TestRollDice)
 TEST_TEAR_DOWN(TestRollDice)
 {
 }
-//testing the result of a func that gets random values: comparing our expected value with value that we ger from a func with certain parametrs
+
+/** \fn TEST(TestRollDice, FunctionRollDice)
+тестирование результата функции, которая получает случаную величину: сравнение ожидаемой величины с величиной, которую мы получаем из функции с определенными параметрами
+*/
 TEST(TestRollDice, FunctionRollDice)
 
 {  

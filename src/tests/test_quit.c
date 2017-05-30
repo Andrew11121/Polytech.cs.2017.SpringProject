@@ -20,7 +20,9 @@ TEST_SETUP(TestQuit)
 TEST_TEAR_DOWN(TestQuit)
 {
 }
-
+/** \fn TEST(TestQuit, FunctionQuit)
+Тестирование условие выхода из игры
+*/
 TEST(TestQuit, FunctionQuit)
 
 {

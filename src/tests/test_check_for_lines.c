@@ -17,7 +17,11 @@ TEST_SETUP(TestCheckForLines)
 TEST_TEAR_DOWN(TestCheckForLines)
 {
 }
-//testing the number of lines in a game: comparing a result from func with a result we get from a test
+
+/** \fn TEST(TestCheckForLines, FunctionCheckForLines)
+Проверяет количество линий в игре: сравнивает результат из функции с результатом, полученным в ходе выполнения теста.
+
+*/
 TEST(TestCheckForLines, FunctionCheckForLines)
 
 {

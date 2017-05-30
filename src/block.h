@@ -5,14 +5,26 @@
 #define block_height 4
 #define null_coord 0
 #include "allegro_framework.h"
+/** @file block.h
+*
+@brief Заголовочный файл для файла с функциями создания, генерации и условия поворота фигур в игре.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 
-typedef struct 
+/** \typedef Block
+*
+Имя структуры "no_name".
+*
+*/
+typedef struct
 {
-    int type;   // what kind of tetromino (e.g. I, O, L...)
-    int color;  // what color index the block has
-    int x, y;   // location in the playfield
-    int dir;    // used for rotating the block
-    int data;   // data about the block shape (see block_data)
+int type; //!< Какая именно фигура игры
+int color; //!< Индекс цвета фигуры
+int x, y; //!< Расположение фигуры на игровом поле
+int dir; //!< Переменная для поворота блока
+int data; //!< Информация о форме блока
 } Block;
 
 void generate_block_at(Block *block, int x, int y);

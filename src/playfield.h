@@ -10,7 +10,13 @@
 #define OFFSET_X 1
 #define OFFSET_Y 4
 #define BLOCK_SIZE 32
-
+/** @file playfield.h
+*
+@brief Функции для работы с игровым полем.
+@author Безбородов Андрей - andrew1000@list.ru \n
+@author Алиев Илья - aliev.ilia@yandex.ru
+*
+*/
 void clear_playfield();
 void copy_block_to_playfield(Block *block);
 bool is_collision(Block *block, int dx, int dy);

@@ -19,6 +19,9 @@ TEST_TEAR_DOWN(TestGetColorByIndex)
 {
 }
 
+/** \fn TEST(TestGetColorByIndex, FunctionGetColorByIndex)
+Проверяет цвет фигуры в игре: сравнивает результат из функции с результатом, полученным в ходе выполнения теста.
+*/
 TEST(TestGetColorByIndex, FunctionGetColorByIndex)
 {
 
