@@ -5,8 +5,8 @@
 Проект написан на языке C. Unit-тесты были написаны с истользованием фреймворка Unity.
 
 ### Интерфейс
-Командная строка, где сначала пишется путь к программе, а следом путь кфайлу.
-![Image alt](https://github.com/misterxddd/polytech.cs.2017.spring_project/raw/master/doc/res/image1.png)
+Командная строка, где сначала пишется путь к программе, а следом путь к файлу.
+![Image alt](https://github.com/alievilya/Polytech.cs.2017.SpringProject/blob/master/doc/res/image1.png)
 
 ### Запуск
 Запуск игры осуществляется при помощи командной строки. Сначала нужно написать путь к программе.
