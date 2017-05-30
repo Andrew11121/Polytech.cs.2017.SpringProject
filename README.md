@@ -6,7 +6,7 @@
 
 ### Интерфейс
 Командная строка, где сначала пишется путь к программе, а следом путь кфайлу.
-![Image alt](https://github.com/misterxddd/polytech.cs.2017.spring_project/raw/master/doc/res/image1.png)
+![Image alt](https://github.com/alievilya/Polytech.cs.2017.SpringProject/blob/master/doc/res/image1.png)
 
 ### Запуск
 Запуск игры осуществляется при помощи командной строки. Сначала нужно написать путь к программе.
