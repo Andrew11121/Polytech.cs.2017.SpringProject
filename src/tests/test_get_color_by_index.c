@@ -25,7 +25,7 @@ TEST(TestGetColorByIndex, FunctionGetColorByIndex)
 static ALLEGRO_COLOR color_index[MAX_COLORS];
 
 int  testing_value ;
-int rec, index=2;
+int rec, index=MAX_COLORS;
 color_index[index] = al_map_rgb(255, 255, testing_value);
 if (testing_value==32766||testing_value==32767);
 rec=1;

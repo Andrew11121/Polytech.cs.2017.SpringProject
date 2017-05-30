@@ -10,14 +10,15 @@ PROJECT  := AllegroTetris
 # ------------------
 CC  := gcc
 RM  := rm -rf
+DG  := doxygen
 
 # --------------------
 # Directories & Files
 # --------------------
 D_SRC    := ./src
 D_TESTS  := $(D_SRC)/tests
-D_UNITY  :=
-
+D_UNITY  := 
+D_DOC    := ./doc
 
 ENTRY_POINT := $(D_SRC)/tetris.c
 
@@ -60,8 +61,17 @@ $(PROJECT): $(PROJECT_WITHOUT_TESTS_O)
 test-$(PROJECT): $(PROJECT_WITH_TESTS_O)
 	$(CC)	-I	$(D_SRC)	$(LFLAGS)	$(PROJECT_WITH_TESTS_O) -o $@	$(ALLEGRO) $(INCS) 
 
+.phony: doxygen
+doxygen:
+	$(DG) $(D_DOC)/doxygen.config
+
+.phony: html
+html: doxygen
+
+.phony: pdf
+pdf: doxygen
+	make -C $(D_DOC)/output/latex
 .phony:	clean
 clean:
-	-$(RM)	$(PROJECT_WITH_TESTS_O)	$(D_SRC)/tetris.o $(PROJECT) test-$(PROJECT)
-
+	-$(RM) $(PROJECT_WITH_TESTS_O) $(D_SRC)/main.o $(PROJECT) test-$(PROJECT) $(D_DOC)/output
 
