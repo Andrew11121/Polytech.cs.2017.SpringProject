@@ -16,6 +16,7 @@ RUN_TEST_GROUP(TestClearPlayfield);
 RUN_TEST_GROUP(TestDrawBlock);
 RUN_TEST_GROUP(TestGenerateBlockAt);
 RUN_TEST_GROUP(TestIsKeyPressed);
+RUN_TEST_GROUP(TestCountingPoints);
 }
 
 int main(int argc, const char * argv[])
